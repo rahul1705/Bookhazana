@@ -1,0 +1,18 @@
+.color-primary {
+  color: rgb(32, 232, 232);
+}
+
+.color-secondary {
+  color: blue;
+}
+
+/* background colors */
+
+.bg-color-primary {
+  background: rgb(32, 232, 232);
+  color: black;
+}
+
+.bg-color-secondary {
+  background: blue;
+}
