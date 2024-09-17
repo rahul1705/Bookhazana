@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $Cart->addToCart($_POST['user_id'], $_POST['item_id']);
     }
 }
-foreach ($product->getData() as $item):
+foreach ($product->getProduct($item_id) as $item):
     if ($item['item_id'] == $item_id):
 
 ?>
@@ -73,15 +73,15 @@ foreach ($product->getData() as $item):
                 <table class="my-3">
                     <tr class="font-rubik font-size-16">
                         <td>M.R.P:</td>
-                        <td class="text-danger"><s>&#x20B9;<?php echo $item['item_price'];?></s></td>
+                        <td class="text-danger"><s>&#x20B9;<?php $item_price = $item['item_price']; echo $item_price;?></s></td>
                     </tr>
                     <tr class="font-rubik font-size-14">
                         <td>Deal Price:</td>
-                        <td class="text-muted">&#x20B9;<?php echo 300;?></td>
+                        <td class="text-muted">&#x20B9;<?php echo $item_price - ($item_price * 0.05); ?></td>
                     </tr>
                     <tr class="font-rubik font-size-14">
                         <td>You Save:</td>
-                        <td class="text-muted">&#x20B9;<?php echo $item['item_price']-300;?></td>
+                        <td class="text-muted">&#x20B9;<?php echo $item_price * 0.05;?></td>
                     </tr>
                 </table>
                 <hr/>
@@ -90,8 +90,8 @@ foreach ($product->getData() as $item):
                     id="order-details"
                     class="font-rubik d-flex flex-column text-dark"
                 >
-                    <small>Delivery by: <span>10/08/2022 - 12/08/2022</span></small>
-                    <small>Sold by: <a href="#">Rahul Books</a></small>
+                    <small>Delivery by: <span><?php $date = strtotime("+7 day"); echo date('M d, Y', $date); ?></span></small>
+                    <small>Sold by: <a href="#"><?php echo $item['seller_name'] ?></a></small>
                     <small
                     ><i class="fas fa-map-marker-alt color-secondary"></i
                         >&nbsp;&nbsp;Deliver to Customer - 506001</small

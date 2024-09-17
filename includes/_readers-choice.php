@@ -58,20 +58,20 @@ $in_cart = $Cart->getCartId($product->getData('cart'));
         </div>
         <div class="grid">
             <?php array_map(function ($item) use ($in_cart){?>
-            <div class="grid-item border <?php echo $item['item_cat']?>">
-                <div class="item py-2">
+            <div class="grid-item border text-center <?php echo $item['item_cat']?>">
+                <div class="item py-2 px-1" style="width: 150px">
                     <div class="product font-rale">
                         <a href="<?php printf('%s?item_id=%s', 'product.php', $item['item_id']); ?>"
                         ><img
-                                src="<?php echo $item['item_image']?>"
-                                alt="product1"
+                                src="<?php echo $item['item_image']; ?>"
+                                alt="product"
                                 class="img-fluid"
                                 style="height: 200px;"
                             /></a>
                         <div class="text-center">
-                            <h6 class="mt-2"><?php echo $item['item_name']?></h6>
+                            <h6 class="pt-2"><?php echo $item['item_name']; ?></h6>
                             <div class="price py-2">
-                                <span class="font-rubik">&#x20B9; <?php echo $item['item_price']; ?></span>
+                                <span class="font-rubik">&#x20B9; <?php echo $item['item_price'] - ($item['item_price'] * 0.05); ?></span>
                             </div>
                             <form method="post">
                                 <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div class="col-lg-8">
                         <h5 class="font-baloo font-size-20"><?php echo $item['item_name']?></h5>
-                        <small>Author: Rahul Mandal</small>
+                        <small><strong>Author:</strong> <?php echo $item['item_author'];?></small>
                         <div class="d-lg-flex my-2">
                             <form method="post">
                                 <input type="hidden" value="<?php echo $item['item_id']??0; ?>" name="item_id" >
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div class="col-lg-2 text-lg-end">
                         <div class="font-size-20 text-danger font-rubik">
-                            &#x20B9;<span class="product_price"><?php echo $item['item_price']?></span>
+                            &#x20B9;<span class="product_price"><?php echo $item['item_price'] - ($item['item_price'] * 0.05); ?></span>
                         </div>
                     </div>
                 </div>

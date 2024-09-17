@@ -1,3 +1,7 @@
+<?php require "includes/functions.php";
+    $categories = $product->getCategories();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +26,6 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors.css"/>
     <link rel="stylesheet" href="assets/plugins/animate/animate.min.css"/>
-    <!--    Connect DB-->
-    <?php require "includes/functions.php";?>
 </head>
 
 <body>
@@ -79,9 +81,13 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                        >
-                           <li><a class="dropdown-item" href="#">Cat 1</a></li>
+                           <!-- <li><a class="dropdown-item" href="#">Cat 1</a></li>
                            <li><a class="dropdown-item" href="#">Cat 2</a></li>
-                           <li><a class="dropdown-item" href="#">Cat 3</a></li>
+                           <li><a class="dropdown-item" href="#">Cat 3</a></li> -->
+
+                           <?php foreach ($categories as $category): ?>
+                                <li><a class="dropdown-item" href="#"><?php echo htmlspecialchars($category); ?></a></li>
+                            <?php endforeach; ?>
                        </ul>
                     </li>
 

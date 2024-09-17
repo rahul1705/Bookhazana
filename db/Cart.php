@@ -30,7 +30,7 @@ class Cart
 
             $res = $this->insertCart($params);
             if ($res) {
-                header("Location:".$_SERVER['PHP_SELF']);
+                header("Location:".$_SERVER['HTTP_REFERER']);
             }
         }
     }
@@ -51,7 +51,7 @@ class Cart
         if (isset($arr)) {
             $sum = 0;
             foreach ($arr as $item) {
-                $sum += floatval($item[0]);
+                $sum += floatval($item[0]) - (floatval($item[0]) * 0.05);
             }
             return sprintf('%.2f', $sum);
         }

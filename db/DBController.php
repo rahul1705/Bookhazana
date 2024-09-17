@@ -7,12 +7,13 @@ class DBController
     protected $user = 'root';
     protected $pass = '';
     protected $db = 'bookhazana';
+    protected $port = 3307;
 
     public $con = null;
 
     public function __construct()
     {
-        $this->con = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
+        $this->con = mysqli_connect($this->host, $this->user, $this->pass, $this->db, $this->port);
         if ($this->con->connect_error) {
             die("Fail: " . $this->con->connect_error);
         }
